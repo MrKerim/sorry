@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="st.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="confetti.js" defer></script>
+    <title>Fireworks Confetti</title>
+</head>
+<body>
+    <div class='container'>
+        <div class='hoverme' id="confettiContainer">
+            <h1>
+                Geç de olsa mutlu yıllar Sümeyye 🎂 Yanımda olduğun için teşekkürler 🩷
+            </h1>
+            <i></i>
+            <!-- ... (existing confetti elements) ... -->
+        </div>
+        <button id="confettiButton">Click me</button>
+        <div id="photoContainer">
+            <img id="photoImage" src="photo.jpeg" alt="Photo" style="opacity: 0;">
+        </div>
+
+    </div>
+    <script>
+        const confettiButton = document.getElementById("confettiButton");
+        const photoContainer = document.getElementById("photoContainer");
+        const photoImage = document.getElementById("photoImage");
+
+        confettiButton.addEventListener("click", function () {
+            startFireworks();
+            showPhoto();
+        });
+
+        function showPhoto() {
+            let opacity = 0;
+            const interval = setInterval(function() {
+                opacity += 0.05;
+                photoImage.style.opacity = opacity;
+
+                if (opacity >= 1) {
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
